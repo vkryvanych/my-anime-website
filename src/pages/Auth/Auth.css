@@ -1,0 +1,143 @@
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-page {
+  flex: 1;
+  display: flex;
+  position: relative;
+  background: var(--dark);
+  overflow: hidden;
+  padding: 2rem 0;
+}
+
+.auth-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.decoration {
+  position: absolute;
+  max-width: 200px;
+  border-radius: 10px;
+}
+
+.deco-1 {
+  top: 15%;
+  left: 8%;
+  width: 160px;
+}
+
+.deco-2 {
+  bottom: 5%;
+  right: 8%;
+  width: 220px;
+}
+
+.deco-3 {
+  top: 10%;
+  left: 8%;
+  width: 170px;
+}
+
+.deco-4 {
+  bottom: 15%;
+  right: 8%;
+  width: 180px;  
+}
+
+.auth-form-container {
+  width: 100%;
+  max-width: 450px;
+  margin: auto;
+  padding: 3rem 2rem;
+  background: linear-gradient(145deg, #232342, #1c1c33);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.auth-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: white;
+  font-size: 2rem;
+}
+
+.auth-form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  right: 15px;
+  width: 20px;
+  height: 20px;
+  z-index: 2;
+}
+
+.auth-form-container input {
+  padding: 15px 50px 15px 15px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.auth-form-container input:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+.auth-form-container input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.auth-form-container .footer-login-button,
+.auth-form-container .footer-register-button {
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.auth-switch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.auth-switch p {
+  margin-bottom: 0;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.switch-link {
+  color: var(--secondary);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.switch-link:hover {
+  text-decoration: underline;
+}

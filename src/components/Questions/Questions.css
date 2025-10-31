@@ -1,0 +1,67 @@
+.question {
+    display: none;
+    background: linear-gradient(145deg, #232342, #1c1c33);
+    padding: 2rem;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+}
+
+.question.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+.question h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--primary-light);
+    font-size: 1.3rem;
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.option-card {
+    display: block;
+    cursor: pointer;
+}
+
+.option-card input {
+    display: none;
+}
+
+.option-content {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem 1rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.option-card input:checked + .option-content {
+    background: rgba(138, 43, 226, 0.2);
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.option-card:hover .option-content {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.option-emoji {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.option-text {
+    font-weight: 600;
+    color: var(--light);
+}
