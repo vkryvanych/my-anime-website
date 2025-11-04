@@ -1,30 +1,41 @@
 import './Questions.css';
 
 function Questions() {
-  const genres = [
-    { value: 'action', emoji: '⚔️', text: 'Екшн' },
-    { value: 'comedy', emoji: '😂', text: 'Комедія' },
-    { value: 'romance', emoji: '💖', text: 'Романтика' },
-    { value: 'fantasy', emoji: '✨', text: 'Фентезі' }
-  ];
-
   return (
     <div className="question active">
       <h3>Який жанр ви найбільше любите?</h3>
       <div className="options-grid">
-        {genres.map(genre => (
-          <label key={genre.value} className="option-card">
-            <input 
-              type="radio" 
-              name="genre" 
-              value={genre.value}
-            />
-            <div className="option-content">
-              <span className="option-emoji">{genre.emoji}</span>
-              <span className="option-text">{genre.text}</span>
-            </div>
-          </label>
-        ))}
+        <label className="option-card">
+          <input type="radio" name="genre" value="action" />
+          <div className="option-content">
+            <span className="option-emoji">⚔️</span>
+            <span className="option-text">Екшн</span>
+          </div>
+        </label>
+        
+        <label className="option-card">
+          <input type="radio" name="genre" value="comedy" />
+          <div className="option-content">
+            <span className="option-emoji">😂</span>
+            <span className="option-text">Комедія</span>
+          </div>
+        </label>
+        
+        <label className="option-card">
+          <input type="radio" name="genre" value="romance" />
+          <div className="option-content">
+            <span className="option-emoji">💖</span>
+            <span className="option-text">Романтика</span>
+          </div>
+        </label>
+        
+        <label className="option-card">
+          <input type="radio" name="genre" value="fantasy" />
+          <div className="option-content">
+            <span className="option-emoji">✨</span>
+            <span className="option-text">Фентезі</span>
+          </div>
+        </label>
       </div>
     </div>
   );
