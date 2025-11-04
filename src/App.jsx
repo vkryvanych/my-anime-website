@@ -1,9 +1,10 @@
 import "./App.css";
 import Home from "./pages/Home/Home"; 
 import Test from "./pages/Test/Test";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom"; 
 import Auth from './pages/Auth/Auth';
 import Contact from './pages/Contact/Contact';
+
 
 function App() {
   return (
