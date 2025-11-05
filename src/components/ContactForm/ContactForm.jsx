@@ -8,14 +8,14 @@ function ContactForm() {
                 <div className="form-group">
                     <div className="input-with-icon">
                         <input type="text" placeholder="Username" />
-                        <img src="/public/user.png" alt="Username" className="input-icon" />
+                        <img src="/user.png" alt="Username" className="input-icon" />
                     </div>
                 </div>
 
                 <div className="form-group">
                     <div className="input-with-icon">
                         <input type="email" placeholder="Email" />
-                        <img src="/public/email (1).png" alt="Email" className="input-icon" />
+                        <img src="/email (1).png" alt="Email" className="input-icon" />
                     </div>
                 </div>
 

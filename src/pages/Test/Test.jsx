@@ -1,13 +1,11 @@
 import './Test.css';
 import Questions from '../../components/Questions/Questions';
-import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer/Footer";
 import GetRecButton from '../../components/Buttons/GetRecButton/GetRecButton';
 
 function Test() {
   return (
     <div className="test-page">
-      <Header showBackButton={true} />
+    
       
       <div className="test-section">     
         <div className="container">
@@ -23,7 +21,7 @@ function Test() {
         </div>
       </div>
 
-      <Footer showAuthButtons={true} showContactLink={true} />
+     
     </div>
   );
 }
