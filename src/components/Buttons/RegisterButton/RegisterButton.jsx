@@ -1,12 +1,11 @@
-import { Link } from 'react-router-dom';
-import './RegisterButton.css';
+import './RegisterButton.css'
 
 function RegisterButton() {
-    return (
-        <Link to="/auth/register" className="footer-register-button">
-            Зареєструватись
-        </Link>
-    );
+  return (
+    <button type="submit" className="footer-register-button">
+      Зареєструватись
+    </button>
+  );
 }
 
 export default RegisterButton;

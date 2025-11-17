@@ -3,10 +3,11 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  overflow-x: hidden;
 }
 
 .test-section {
-  padding: 2rem 0 4rem;
+  padding: 1rem 0 3rem;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -19,4 +20,64 @@
   justify-content: center;
   width: 100%;
   margin-top: 2rem;
+}
+
+.test-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+
+.error-message {
+  color: #ff6b6b;
+  background: rgba(255, 107, 107, 0.1);
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-align: center;
+  border: 1px solid #ff6b6b;
+}
+
+
+/* Планшети */
+@media (max-width: 768px) {
+  .test-section {
+    padding: 0.5rem 0 2rem;
+  }
+  
+  .test-content {
+    padding: 0 1rem;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .navigation-buttons {
+    margin-top: 1.5rem;
+  }
+}
+
+
+/* Телефони */
+@media (max-width: 480px) {
+  .test-section {
+    padding: 0.25rem 0 1.5rem;
+  }
+  
+  .test-content {
+    padding: 0 0.5rem;
+  }
+  
+  .section-title {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .navigation-buttons {
+    margin-top: 1rem;
+  }
 }

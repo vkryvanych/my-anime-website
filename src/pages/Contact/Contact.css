@@ -23,10 +23,26 @@
     padding: 0 2rem;
 }
 
+
+/* Планшети */
 @media (max-width: 768px) {
-    .contact-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        padding: 0 1rem;
-    }
+  .contact-page {
+    padding: 30px 15px;
+  }
+  
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* Телефони */
+@media (max-width: 480px) {
+  .contact-page {
+    padding: 20px 10px;
+  }
+  
+  .contact-content {
+    gap: 1.5rem;
+  }
 }
