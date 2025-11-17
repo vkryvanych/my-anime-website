@@ -46,7 +46,7 @@ export const useUserSession = () => {
         setAuthError('Невірне імʼя користувача або пароль');
         return { success: false };
       }
-    } catch (err) {
+    } catch {
       setAuthError('Сталася помилка. Спробуйте ще раз');
       return { success: false };
     }
@@ -88,7 +88,7 @@ export const useUserSession = () => {
       setAuthSuccess('Реєстрація пройшла успішно! Ласкаво просимо!');
       return { success: true };
 
-    } catch (err) {
+    } catch {
       setAuthError('Помилка реєстрації');
       return { success: false };
     }
