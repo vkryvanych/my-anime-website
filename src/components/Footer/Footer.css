@@ -1,6 +1,7 @@
 footer {
     background-color: #1c1c33;
     margin-top: auto;
+    overflow-x: hidden;
 }
 
 .footerContainer {
@@ -109,4 +110,31 @@ footer {
 .footer-contact-link:hover {
     background: rgba(255, 255, 255, 0.2);
     transform: translateY(-2px);
+}
+
+
+
+/* Для планшетів */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  
+  .footer-links {
+    justify-content: center;
+  }
+}
+
+/* Для телефонів */
+@media (max-width: 480px) {
+  .footerLinks {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .socialIcons {
+    justify-content: center;
+  }
 }

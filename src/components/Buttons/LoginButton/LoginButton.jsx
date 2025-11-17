@@ -1,12 +1,11 @@
-import { Link } from 'react-router-dom';
-import './LoginButton.css';
+import './LoginButton.css'
 
 function LoginButton() {
-    return (
-        <Link to="/auth/login" className="footer-login-button">
-            Увійти
-        </Link>
-    );
+  return (
+    <button type="submit" className="footer-login-button">
+      Увійти
+    </button>
+  );
 }
 
 export default LoginButton;

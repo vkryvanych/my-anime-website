@@ -1,6 +1,6 @@
 import './Footer.css';
-import RegisterButton from '../Buttons/RegisterButton/RegisterButton';
-import LoginButton from '../Buttons/LoginButton/LoginButton';
+import RegisterButtonFooter from '../../components/Buttons/RegisterButtonFooter/RegisterButtonFooter';
+import LoginButtonFooter from '../../components/Buttons/LoginButtonFooter/LoginButtonFooter';
 import { Link } from 'react-router-dom';
 
 function Footer({ showAuthButtons = true, showContactLink = true }) {
@@ -9,16 +9,16 @@ function Footer({ showAuthButtons = true, showContactLink = true }) {
             <div className="footerContainer">
                 <div className="socialIcons">
                     <a href="#"><i className="fa-brands fa-facebook"></i></a>
-                    <a href="#"><i className="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=4hefydo"><i className="fa-brands fa-instagram"></i></a>
                     <a href="#"><i className="fa-brands fa-twitter"></i></a>
-                    <a href="#"><i className="fa-brands fa-tiktok"></i></a>
+                    <a href="https://www.tiktok.com/@lawlietssss?_r=1&_t=ZM-91JUJAxqbrI"><i className="fa-brands fa-tiktok"></i></a>
                     <a href="#"><i className="fa-brands fa-youtube"></i></a>
                 </div>
                 
                 {showAuthButtons && (
                     <div className="footerLinks">
-                        <RegisterButton />
-                        <LoginButton />
+                        <RegisterButtonFooter />
+                        <LoginButtonFooter />
                     </div>
                 )}
                 

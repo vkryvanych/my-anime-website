@@ -1,22 +1,74 @@
-import LoginButton from '../../components/Buttons/LoginButton/LoginButton';
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom'; 
+import LoginButton from '../Buttons/LoginButton/LoginButton';
+import { useUserSession } from '../../hooks/useUserSession';
 
 function LoginForm() {
+  const { userLogin, authError, authSuccess } = useUserSession();
+  const [formData, setFormData] = useState({ username: '', password: '' });
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    
+    if (!e.target.checkValidity()) {
+      e.target.reportValidity();
+      return;
+    }
+
+    
+    const result = await userLogin(formData);
+    console.log('Імітація входу:', formData);
+
+    if (result && result.success) {
+      navigate('/'); 
+    }
+  };
+
   return (
     <div className="login-form">
       <h2 className="auth-title">Увійти</h2>
-      <form>
+
+      <form onSubmit={handleSubmit} noValidate={false}>
         <div className="input-with-icon">
-          <input type="text" placeholder="Username" />
-          <img src="/public/user.png" alt="Username" className="input-icon" />
+          <input
+            type="text"
+            name="username"
+            id="login-username"
+            placeholder="Username"
+            value={formData.username}
+            onChange={handleChange}
+            required
+          />
+          <img src="/user.png" alt="Username" className="input-icon" />
         </div>
+
         <div className="input-with-icon">
-          <input type="password" placeholder="Password" />
-          <img src="/public/padlock.png" alt="Password" className="input-icon" />
+          <input
+            type="password"
+            name="password"
+            id="login-password"
+            placeholder="Password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+          <img src="/padlock.png" alt="Password" className="input-icon" />
         </div>
+
+        {authError && <div className="auth-error">{authError}</div>}
+        {authSuccess && <div className="auth-success">{authSuccess}</div>}
+
+      
         <LoginButton />
       </form>
-      
+
+     
       <div className="auth-switch">
         <p>Не маєте акаунту?</p>
         <Link to="/auth/register" className="switch-link">Зареєструватися</Link>
