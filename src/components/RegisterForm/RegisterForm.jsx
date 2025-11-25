@@ -6,7 +6,7 @@ import { useUserSession } from '../../hooks/useUserSession';
 function RegisterForm() {
   const { userRegister, authError, authSuccess } = useUserSession();
   const [formData, setFormData] = useState({
-    username: '',
+    name: '',
     email: '',
     password: ''
   });
@@ -36,10 +36,10 @@ function RegisterForm() {
         <div className="input-with-icon">
           <input
             type="text"
-            name="username"
+            name="name"
             id="register-username"
             placeholder="Username"
-            value={formData.username}
+            value={formData.name}
             onChange={handleChange}
             required
           />

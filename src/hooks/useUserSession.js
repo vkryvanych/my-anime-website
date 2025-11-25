@@ -1,16 +1,12 @@
 import { useState, useEffect } from 'react';
+import axios from 'axios'; 
 
-const mockUsers = [
-  { id: 1, email: 'user@test.com', password: '123456', username: 'animefan' },
-];
 
 export const useUserSession = () => {
   const [currentUser, setCurrentUser] = useState(null);
   const [authError, setAuthError] = useState('');
   const [authSuccess, setAuthSuccess] = useState('');
 
-
-  const delay = (ms) => new Promise(res => setTimeout(res, ms));
 
   useEffect(() => {
     const savedUser = localStorage.getItem('animeUser');
@@ -19,81 +15,62 @@ export const useUserSession = () => {
     }
   }, []);
 
+
   const userLogin = async (credentials) => {
     setAuthError('');
     setAuthSuccess('');
 
-    await delay(700); 
-
     try {
-      const foundUser = mockUsers.find(u =>
-        (u.email === credentials.username || u.username === credentials.username) &&
-        u.password === credentials.password
-      );
-
-      if (foundUser) {
+        const response = await axios.post("http://localhost:5000/api/login", {
+        email: credentials.email, 
+        password: credentials.password });
+  
         const userData = {
-          id: foundUser.id,
-          email: foundUser.email,
-          username: foundUser.username
-        };
-
-        setCurrentUser(userData);
+        id: response.data.user_id || response.data.user.id,
+        email: response.data.user.email,
+        name: response.data.user.name    
+    };
+        setCurrentUser(userData); 
         localStorage.setItem('animeUser', JSON.stringify(userData));
         setAuthSuccess('Вітаємо! Ви успішно увійшли!');
         return { success: true };
-      } else {
-        setAuthError('Невірне імʼя користувача або пароль');
-        return { success: false };
-      }
-    } catch {
-      setAuthError('Сталася помилка. Спробуйте ще раз');
+
+    } catch (error) {
+      setAuthError(error.response?.data?.message || 'Сталася помилка. Спробуйте ще раз');
       return { success: false };
     }
   };
+
 
   const userRegister = async (userData) => {
     setAuthError('');
     setAuthSuccess('');
-
-    await delay(700); 
-
     try {
-      const userExists = mockUsers.find(u =>
-        u.email === userData.email || u.username === userData.username
-      );
-
-      if (userExists) {
-        setAuthError('Користувач з таким email або іменем вже існує');
-        return { success: false };
-      }
-
-      const newUser = {
-        id: mockUsers.length + 1,
+      const response = await axios.post("http://localhost:5000/api/user", 
+      {
+        name: userData.name,     
         email: userData.email,
-        password: userData.password,
-        username: userData.username
+        password: userData.password
+      });  
+      
+      const newUser = {
+        id: response.data.savedData._id,
+        email: response.data.savedData.email,
+        name: response.data.savedData.name
       };
 
-      mockUsers.push(newUser);
-
-      const userInfo = {
-        id: newUser.id,
-        email: newUser.email,
-        username: newUser.username
-      };
-
-      setCurrentUser(userInfo);
-      localStorage.setItem('animeUser', JSON.stringify(userInfo));
+      setCurrentUser(newUser);
+      localStorage.setItem('animeUser', JSON.stringify(newUser));
       setAuthSuccess('Реєстрація пройшла успішно! Ласкаво просимо!');
       return { success: true };
 
-    } catch {
-      setAuthError('Помилка реєстрації');
+      } catch(error) {
+      setAuthError(error.response?.data?.message || 'Помилка реєстрації');
       return { success: false };
     }
   };
 
+  
   const userLogout = () => {
     setCurrentUser(null);
     localStorage.removeItem('animeUser');

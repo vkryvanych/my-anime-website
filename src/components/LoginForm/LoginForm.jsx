@@ -5,7 +5,7 @@ import { useUserSession } from '../../hooks/useUserSession';
 
 function LoginForm() {
   const { userLogin, authError, authSuccess } = useUserSession();
-  const [formData, setFormData] = useState({ username: '', password: '' });
+  const [formData, setFormData] = useState({ email: '', password: '' });
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -37,11 +37,11 @@ function LoginForm() {
       <form onSubmit={handleSubmit} noValidate={false}>
         <div className="input-with-icon">
           <input
-            type="text"
-            name="username"
-            id="login-username"
-            placeholder="Username"
-            value={formData.username}
+            type="email"
+            name="email"
+            id="login-email"
+            placeholder="Email"
+            value={formData.email}
             onChange={handleChange}
             required
           />

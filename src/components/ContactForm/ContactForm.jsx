@@ -8,7 +8,7 @@ function ContactForm() {
   const [formData, setFormData] = useState({
     username: '',
     email: '',
-    comment: ''
+    message: ''
   });
 
   const handleChange = (e) => {
@@ -32,7 +32,7 @@ function ContactForm() {
       setFormData({
         username: '',
         email: '',
-        comment: ''
+        message: ''
       });
     }
   };
@@ -40,7 +40,7 @@ function ContactForm() {
   return (
     <div className="contact-form-section">
       <div className="contact-form">
-        <form onSubmit={handleSubmit} noValidate={false}>
+        <form onSubmit={handleSubmit}>
           <div className="form-group">
             <div className="input-with-icon">
               <input 
@@ -74,11 +74,11 @@ function ContactForm() {
           <div className="form-group">
             <div className="input-with-icon">
               <textarea 
-                name="comment"
+                name="message"
                 id="contact-comment"
                 placeholder="Comment" 
                 rows="4" 
-                value={formData.comment}
+                value={formData.message}
                 onChange={handleChange}
                 required
               ></textarea>

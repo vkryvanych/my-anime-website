@@ -1,28 +1,28 @@
 import { useState } from 'react';
+import axios from 'axios'; 
 
 export const useContact = () => {
   const [contactError, setContactError] = useState('');
   const [contactSuccess, setContactSuccess] = useState('');
 
-  const delay = (ms) => new Promise(res => setTimeout(res, ms));
-
+  
   const sendMessage = async (messageData) => {
     setContactError('');
     setContactSuccess('');
 
-    await delay(700);
-
     try {
-
-      console.log('Контактна форма відправлена:', messageData);
-
-      setContactSuccess(
-        'Дякуємо! Ваше повідомлення відправлено! Ми відповімо вам найближчим часом.'
+      const response = await axios.post("http://localhost:5000/api/contact", 
+        {
+        username: messageData.username,  
+        email: messageData.email,
+        message: messageData.message
+        }
       );
+      setContactSuccess(response.data.message);
       return { success: true };
 
     } catch {
-      setContactError('Помилка при відправці повідомлення. Спробуйте ще раз.');
+      setContactError(error.response?.data?.errorMessage || 'Помилка при відправці повідомлення. Спробуйте ще раз.');
       return { success: false };
     }
   };

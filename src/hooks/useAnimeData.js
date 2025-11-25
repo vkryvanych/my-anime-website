@@ -94,7 +94,7 @@ export const useAnimeData = () => {
       setError(`На жаль, для жанру ${genre} ще немає рекомендацій`);
       return [];
     }
-
+    
     return recommendations; 
   };
 
