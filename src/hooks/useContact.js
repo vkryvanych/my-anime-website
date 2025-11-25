@@ -21,7 +21,7 @@ export const useContact = () => {
       setContactSuccess(response.data.message);
       return { success: true };
 
-    } catch {
+    } catch (error) {
       setContactError(error.response?.data?.errorMessage || 'Помилка при відправці повідомлення. Спробуйте ще раз.');
       return { success: false };
     }
