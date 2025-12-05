@@ -3,8 +3,8 @@ import ContactButton from '../../components/Buttons/ContactButton/ContactButton'
 import { useContact } from '../../hooks/useContact';
 import './ContactForm.css';
 
-function ContactForm() {
-  const { sendMessage, contactError, contactSuccess } = useContact();
+function ContactForm({ useContactHook = useContact }) {
+  const { sendMessage, contactError, contactSuccess } = useContactHook();
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -46,13 +46,11 @@ function ContactForm() {
               <input 
                 type="text" 
                 name="username"
-                id="contact-username"
                 placeholder="Username" 
                 value={formData.username}
                 onChange={handleChange}
                 required
               />
-              <img src="/user.png" alt="Username" className="input-icon" />
             </div>
           </div>
 
@@ -61,13 +59,11 @@ function ContactForm() {
               <input 
                 type="email" 
                 name="email"
-                id="contact-email"
                 placeholder="Email" 
                 value={formData.email}
                 onChange={handleChange}
                 required
               />
-              <img src="/email (1).png" alt="Email" className="input-icon" />
             </div>
           </div>
 
@@ -75,7 +71,6 @@ function ContactForm() {
             <div className="input-with-icon">
               <textarea 
                 name="message"
-                id="contact-comment"
                 placeholder="Comment" 
                 rows="4" 
                 value={formData.message}

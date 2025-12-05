@@ -3,8 +3,8 @@ import { useNavigate, Link } from 'react-router-dom';
 import LoginButton from '../Buttons/LoginButton/LoginButton';
 import { useUserSession } from '../../hooks/useUserSession';
 
-function LoginForm() {
-  const { userLogin, authError, authSuccess } = useUserSession();
+function LoginForm({ useUserSessionHook = useUserSession }) {
+  const { userLogin, authError, authSuccess } = useUserSessionHook();
   const [formData, setFormData] = useState({ email: '', password: '' });
   const navigate = useNavigate();
 

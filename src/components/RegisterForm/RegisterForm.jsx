@@ -3,8 +3,8 @@ import RegisterButton from "../Buttons/RegisterButton/RegisterButton";
 import { Link } from 'react-router-dom';
 import { useUserSession } from '../../hooks/useUserSession';
 
-function RegisterForm() {
-  const { userRegister, authError, authSuccess } = useUserSession();
+function RegisterForm({ useUserSessionHook = useUserSession }) {
+  const { userRegister, authError, authSuccess } = useUserSessionHook();
   const [formData, setFormData] = useState({
     name: '',
     email: '',

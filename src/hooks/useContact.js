@@ -1,21 +1,26 @@
 import { useState } from 'react';
-import axios from 'axios'; 
 
-export const useContact = () => {
+// Додаємо axios як параметр з дефолтним значенням
+export const useContact = (axiosInstance = null) => {
   const [contactError, setContactError] = useState('');
   const [contactSuccess, setContactSuccess] = useState('');
 
-  
+  const axiosToUse = axiosInstance || (() => {
+    // Динамічний імпорт, щоб уникнути проблем з тестами
+    const axios = require('axios');
+    return axios;
+  })();
+
   const sendMessage = async (messageData) => {
     setContactError('');
     setContactSuccess('');
 
     try {
-      const response = await axios.post("http://localhost:5000/api/contact", 
+      const response = await axiosToUse.post("http://localhost:5000/api/contact", 
         {
-        username: messageData.username,  
-        email: messageData.email,
-        message: messageData.message
+          username: messageData.username,  
+          email: messageData.email,
+          message: messageData.message
         }
       );
       setContactSuccess(response.data.message);
