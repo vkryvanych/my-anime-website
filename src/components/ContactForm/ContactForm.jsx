@@ -38,7 +38,7 @@ function ContactForm({ useContactHook = useContact }) {
   };
 
   return (
-    <div className="contact-form-section">
+    <div className="contact-form-section" data-testid="contact-form-component">
       <div className="contact-form">
         <form onSubmit={handleSubmit}>
           <div className="form-group">

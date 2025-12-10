@@ -2,7 +2,7 @@ import './ContactText.css';
 
 function ContactText() {
     return (
-        <div className="contact-text">
+        <div className="contact-text" data-testid="contact-text-component">
             <h1>Ми тут, щоб допомогти!</h1>
             <p className="contact-description">
                 Повідомте нам, як ми можемо найкраще вам допомогти.<br />

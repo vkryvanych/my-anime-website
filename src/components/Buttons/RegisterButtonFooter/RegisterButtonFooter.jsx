@@ -3,7 +3,7 @@ import './RegisterButtonFooter.css';
 
 function RegisterButtonFooter() {
     return (
-        <Link to="/auth/register" className="footer-register-button">
+        <Link to="/auth/register" className="footer-register-button"  data-testid="footer-register-button">
             Зареєструватись
         </Link>
     );

@@ -2,7 +2,7 @@ import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import RegisterForm from './RegisterForm';
 
-describe('RegisterForm', () => {
+describe('RegisterForm conponent', () => {
   it('renders register form', () => {
     const mockHook = () => ({
       userRegister: cy.stub(),

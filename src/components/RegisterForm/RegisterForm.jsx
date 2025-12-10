@@ -29,7 +29,7 @@ function RegisterForm({ useUserSessionHook = useUserSession }) {
   };
 
   return (
-    <div className="register-form">
+    <div className="register-form" data-testid="register-form"> 
       <h2 className="auth-title">Зареєструватися</h2>
 
       <form onSubmit={handleSubmit} noValidate={false}>

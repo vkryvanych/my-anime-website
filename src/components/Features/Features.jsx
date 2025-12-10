@@ -20,7 +20,7 @@ function Features() {
     ];
 
     return (
-        <div className="features">
+        <div className="features" data-testid = "feature-component">
             <div className="container">
                 <h2 className="section-title">Чому обирають <span>AnimeRec</span> ?</h2>
                 <div className="features-grid">

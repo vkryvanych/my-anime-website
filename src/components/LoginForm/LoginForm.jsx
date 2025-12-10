@@ -31,7 +31,7 @@ function LoginForm({ useUserSessionHook = useUserSession }) {
   };
 
   return (
-    <div className="login-form">
+    <div className="login-form" data-testid="login-form">
       <h2 className="auth-title">Увійти</h2>
 
       <form onSubmit={handleSubmit} noValidate={false}>
@@ -70,7 +70,7 @@ function LoginForm({ useUserSessionHook = useUserSession }) {
 
      
       <div className="auth-switch">
-        <p>Не маєте акаунту?</p>
+        <p data-testid="no-account">Не маєте акаунту?</p>
         <Link to="/auth/register" className="switch-link">Зареєструватися</Link>
       </div>
     </div>

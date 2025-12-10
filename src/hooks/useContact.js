@@ -1,15 +1,11 @@
 import { useState } from 'react';
+import axios from 'axios'; 
 
-// Додаємо axios як параметр з дефолтним значенням
 export const useContact = (axiosInstance = null) => {
   const [contactError, setContactError] = useState('');
   const [contactSuccess, setContactSuccess] = useState('');
 
-  const axiosToUse = axiosInstance || (() => {
-    // Динамічний імпорт, щоб уникнути проблем з тестами
-    const axios = require('axios');
-    return axios;
-  })();
+  const axiosToUse = axiosInstance || axios; // ← І ТУТ!
 
   const sendMessage = async (messageData) => {
     setContactError('');
