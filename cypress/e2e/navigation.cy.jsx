@@ -1,6 +1,6 @@
 describe('Main Navigation Tests', () => {
   it('should navigate between all pages', () => {
-    // 1. Home - Test
+    // 1. Home - Test 
     cy.visit('/');
     cy.get('a.get-rec-button').click();
     cy.url().should('include', '/test');

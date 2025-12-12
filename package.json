@@ -12,10 +12,11 @@
     "test:open": "cypress open --component",
     "coverage": "cypress run --component",
     "coverage:open": "start coverage/lcov-report/index.html"
-  }, 
+  },
   "dependencies": {
     "axios": "^1.13.2",
     "cors": "^2.8.5",
+    "firebase": "^12.6.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-router-dom": "^7.9.4"
